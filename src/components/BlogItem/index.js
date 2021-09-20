@@ -1,13 +1,19 @@
 import React from "react";
+import "./blog-item.scss";
+import { RegisterBg } from "@assets";
+import { Button, Gap } from "@components";
+import { useHistory } from "react-router-dom";
 
 const BlogItem = () => {
+  const history = useHistory();
+
   return (
-    <div>
-      <img className="image-thumb" alt="" />
-      <div>
+    <div className="blog-item">
+      <img className="image-thumb" src={RegisterBg} alt="" />
+      <div className="content-detail">
         <p className="title">Title Blog</p>
-        <p className="title">Author - Date Post</p>
-        <p className="title">
+        <p className="author">Author - Date Post</p>
+        <p className="body">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           id commodo justo. In vehicula vulputate nibh, id vestibulum sem
           posuere sed. Nullam efficitur enim vitae tristique molestie. Nulla
@@ -23,6 +29,11 @@ const BlogItem = () => {
           Vestibulum lacinia tincidunt finibus. In nec fringilla ante, at
           placerat turpis.
         </p>
+        <Gap height={20} />
+        <Button
+          title="View Detail"
+          onClick={() => history.push("/detail-blog")}
+        />
       </div>
     </div>
   );
